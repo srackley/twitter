@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/srackley/twitter/issues"
   },
-  "homepage": "https://github.com/srackley/twitter#readme"
+  "homepage": "https://github.com/srackley/twitter#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "morgan": "^1.8.2",
+    "nunjucks": "^3.0.1"
+  }
 }
