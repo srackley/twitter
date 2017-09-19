@@ -6,6 +6,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const nunjucks = require('nunjucks');
+
 var requests = [];
 var router = express.Router();
 
@@ -36,6 +37,8 @@ app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 nunjucks.configure('views', {noCache: true});
 
+
+
 var locals = {
     title: 'An Example',
     people: [
@@ -44,9 +47,11 @@ var locals = {
         { name: 'Hermione'}
     ]
 };
+const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+
 
 app.get("/", function(req, res){
-    res.send("Hello!");
+    res.render('index', {title: 'Hall of Fame', people: people});
 })
 
 app.listen(3000, function(){
