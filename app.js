@@ -1,14 +1,17 @@
 const express = require('express');
 const app = express();
-const chalk = require('chalk');
+//const chalk = require('chalk');
 const morgan = require('morgan');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const nunjucks = require('nunjucks');
+const routes = require('./routes');
+app.use('/', routes);
+app.use(express.static('public'));
 
 var requests = [];
-var router = express.Router();
+//var router = express.Router();
 
 // app.use(function(req, res, next){
 //     requests.push(req.method, req.path);
@@ -17,6 +20,7 @@ var router = express.Router();
 // });
 
 var logger = app.use(morgan('combined'));
+
 
 http.createServer(function(req, res){
     var done = finalhandler(req, res)
@@ -50,9 +54,9 @@ var locals = {
 const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 
 
-app.get("/", function(req, res){
-    res.render('index', {title: 'Hall of Fame', people: people});
-})
+// app.get("/", function(req, res){
+//     res.render('index', {title: 'Hall of Fame', people: people});
+// })
 
 app.listen(3000, function(){
     console.log("server listening on 3000");
