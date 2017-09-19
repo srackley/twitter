@@ -15,7 +15,6 @@ var server = app.listen(3000, function(){
     console.log("server listening on 3000");
 });
 var io = socketio.listen(server);
-console.log('io in app.js', io);
 app.use('/', routes(io));
 app.use(express.static('public'));
 

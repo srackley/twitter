@@ -1,6 +1,8 @@
 html,
 body {
+  font-family: Helvetica;
   height: 100%;
+  background-color: #E1E8ED;
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -42,18 +44,62 @@ code {
 }
 
 .tweetbox {
-  padding: 7px;
+  padding: 5px 0 5px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #1dcaff;
+}
+.tweetbox:hover{
+  border-color: #00aced;
 }
 
-.tweetbox img {
+.img {
+  border-radius: 50%;
+  padding: 10px;
   float: left;
-  height: 48px;
-  width: 48px;
+  height: 60px;
+  width: 60px;
   content:url("http://lorempixel.com/48/48");
 }
-.content {
-  margin-left: 60px;
+.mainimg {
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 50%;
+  margin: 20px;
+  float: left;
+  height: 80px;
+  width: 80px;
+  content:url("http://lorempixel.com/48/48");
+  border-color: white;
 }
-.content .by {
+
+.tweeting{
+  padding: 20px 10px 10px;
+
+}
+
+.tweeting:hover{
+  background-color: #F5F8FA;
+}
+.by {
   font-weight: bold;
+  color: black;
+}
+
+#tweet {
+  background-color:  #00aced;
+  font-weight: 900;
+  color: white;
+  border-style: none;
+  border-radius: 20px;
+  padding: 8px 22px 8px 22px;
+}
+
+#tweet:hover{
+  background-color: #0084b4;
+}
+
+a:hover {
+  color: #00aced;
 }

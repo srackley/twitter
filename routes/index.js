@@ -31,7 +31,6 @@ module.exports = function(io) {
       let list = tweetBank.find( {id: id} );
       res.render( 'index', { tweets: list } );
     });
-    console.log('io in index.js', io);
     router.post('/tweets', urlEncodedParser, function(req, res) {
       var name = req.body.name;
       var text = req.body.text;
