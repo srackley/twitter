@@ -24,12 +24,27 @@
       <!-- display tweets here -->
       {% for tweet in tweets %}
 
-      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg">
-      <li>{{tweet.name}}</li>
-        <li>{{tweet.content}}</li>
+   <img style= 'float:left; margin: 10px; width:50px; height:50px; border-radius:50%', src=http://digitalspyuk.cdnds.net/17/13/768x667/gallery-1490989105-twitter1.jpg>
+        <li style = 'margin-top: 20px; list-style:none'><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - <a style = 'color: black', href="/tweets/{{tweet.id}}">{{tweet.content}}</a></li>
+    <br style='clear:both'/>
       {% endfor %}
 
     </div>
   </div>
+
+  {% if showForm %}
+  <form action="/tweets" method="POST">
+    <label for="name_field">Name:</label>
+    <input name="name" type="text" id="name_field" value="Jane Doe" />
+
+    <label for="text_field">Text:</label>
+    <input name="text" type="text" id="text_field" style="width: 350px;" value="What's happening?" />
+
+    <input type="submit" value="Submit" />
+  </form>
+{% endif %}
+
+
+
 
 {% endblock %}

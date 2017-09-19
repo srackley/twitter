@@ -1,13 +1,22 @@
 const express = require('express');
 const app = express();
+var socketio = require('socket.io');
+// ...
+
 //const chalk = require('chalk');
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
-app.use('/', routes);
+var server = app.listen(3000, function(){
+    console.log("server listening on 3000");
+});
+var io = socketio.listen(server);
+console.log('io in app.js', io);
+app.use('/', routes(io));
 app.use(express.static('public'));
 
 var requests = [];
@@ -31,11 +40,13 @@ http.createServer(function(req, res){
     })
     })
 
-app.use("/special", function(req, res, next){
+/*app.use("/special", function(req, res, next){
     requests.push(req.method, req.path);
     console.log('You reached a special area');
     next();
-});
+}); */
+
+
 
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
@@ -58,6 +69,4 @@ const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 //     res.render('index', {title: 'Hall of Fame', people: people});
 // })
 
-app.listen(3000, function(){
-    console.log("server listening on 3000");
-})
+
