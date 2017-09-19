@@ -10,41 +10,38 @@
 
 {% block content %}
 <br>
-  <div class="row" style="background-color: #c0deed">
-    
-    <div class="col-xl-3">
+<div class="row">    
+    <div class="col-md-4" style="background-color: #c0deed">
       <img class='mainimg' src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
-
-      <b>Reginald Housen</b><br>
-      197 followers
-    </div>
-
+      <div style="margin-top: 30px">
+      <b id="mainName">Reginald Housen</b><br>
+      <p>197 followers<p>
+      </div>
     
         {% if showForm %}
-        <form style='float: right; padding: 20px;' action="/tweets" method="POST">
-          <input name="name" type="text" class='tweetbox' id="name_field" placeholder="Reginald Housen"/>
-          <input name="text" class='tweetbox' type="text" id="text_field" style="width: 300px;" placeholder="What's happening?" />
+        <form style='padding: 20px;' action="/tweets" method="POST">
+          <input name="name" type="text" class='tweetbox' id="name_field" placeholder="Jane Doe"/>
+          <input name="text" class='tweetbox' type="text" id="text_field" style="max-width: 300px; min-width: 260px" placeholder="What's happening?" />
           <input type="submit" id='tweet' value="Tweet" />
         </form>
       {% endif %}
-      
     </div>
   
-  <div class="row" style="background-color: white; padding: 20px;">
+  <div class="col-md-8" style="background-color: white; padding: 20px;">
       
 
       <!-- display tweets here -->
       {% for tweet in tweets %}
-<div class="tweeting" style="border-bottom: 1px solid; border-color: lightgrey;">
+<div class="tweeting">
    <img class='img'>
-    <li style='margin-top: 30; list-style:none'><a class='by' href="/users/{{tweet.name}}">{{tweet.name}}</a></li>
-    <li style='list-style:none;'><a style='color: black; text-decoration: none;' href="/tweets/{{tweet.id}}">{{tweet.content}}</a></li>
-    <br style='clear:both;'/>
+    <li style='margin-top: 10px;'><a class='by' href="/users/{{tweet.name}}">{{tweet.name}}</a></li>
+    <li><a style='color: black; text-decoration: none;' href="/tweets/{{tweet.id}}">{{tweet.content}}</a></li>
+    <br style='clear:both'/>
 </div>
       {% endfor %}
 
     </div>
-  </div>
+ 
 
   
 

@@ -68,15 +68,15 @@ code {
   border-radius: 50%;
   margin: 20px;
   float: left;
-  height: 80px;
-  width: 80px;
-  content:url("http://lorempixel.com/48/48");
+  height: 70px;
+  width: 70px;
   border-color: white;
 }
 
 .tweeting{
   padding: 20px 10px 10px;
-
+  border-bottom: 1px solid; 
+  border-color: lightgrey;
 }
 
 .tweeting:hover{
@@ -94,6 +94,7 @@ code {
   border-style: none;
   border-radius: 20px;
   padding: 8px 22px 8px 22px;
+  margin-top: 20px;
 }
 
 #tweet:hover{
@@ -102,4 +103,12 @@ code {
 
 a:hover {
   color: #00aced;
+}
+
+li {
+  list-style: none;
+}
+
+#mainName{
+  font-size: 18px;
 }
